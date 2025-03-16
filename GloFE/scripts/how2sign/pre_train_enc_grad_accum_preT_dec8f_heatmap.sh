@@ -1,0 +1,24 @@
+torchrun /data/group1/z40575r/TimeSformer_GloFE/GloFE/train_how2_pose_DDP_inter_VN_TF.py \
+    --ngpus 4 \
+    --work_dir_prefix "./timesformer_work_dir" \
+    --work_dir "pretrain_dec_8f_heatmap/" \
+    --bs 2 --ls 0.2 --epochs 400 \
+    --save_every 1 \
+    --clip_length 512 --vocab_size 23136 \
+    --feat_path "/data/group1/z40575r/CorrNet/gradcam" \
+    --label_path "/data/group1/z40575r/CorrNet/how2sign/annotations/how2sign_realigned_combined.tsv" \
+    --eos_token "</s>" \
+    --tokenizer "/data/group1/z40575r/TimeSformer_GloFE/GloFE/notebooks/how2sign/how2sign-bpe25000-tokenizer-uncased" \
+    --pose_backbone "PartedPoseBackbone" \
+    --pe_enc --mask_enc "True" --lr 3e-4 --dropout_dec 0.1 --dropout_enc 0.1 \
+    --inter_cl "False" --inter_cl_margin 0.4 --inter_cl_alpha 1.0 \
+    --inter_cl_vocab 2191 \
+    --inter_cl_we_path "./GloFE/notebooks/openasl-v1.0/uncased_filtred_glove_VN_embed.pkl"\
+    --dim_embedding 768\
+    --dec_pre_trained "True"\
+    --num_dec 4 \
+    --dim_forward_dec 1024 \
+    --nhead_dec 8\
+    --frames16  "False"\
+    --ts_overlap 2\
+    --vid_format "jpg"
