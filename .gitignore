@@ -1,0 +1,12 @@
+# Ouput logs and error logs #
+*.out
+.d*
+*.err
+
+#video and image files#
+*.mp4
+*.png
+*.jpg
+
+# Original TimeSformer model
+TimeSformer/*
